@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+#flight_form {
+  div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 16rem;
+  }
+}
