@@ -4,13 +4,21 @@
 
 <hr>
 
-<%= render partial: "flights/partials/searchform" %>
+<%= render "flights/partials/searchform" %>
 
 <h1>Flights list</h1>
-<% if @flights_filtered %>
-  <% @flights_filtered.each do |flight| %>
-    <p><%= flight.name %></p>
+<%= form_with url: bookings_path, method: :post do |form| %>
+  <% if @flights_filtered.any? %>
+    <% @flights_filtered.each do |flight| %>
+      <div>
+        <h2><%= flight.name %></h2>
+        <p><%= flight.date %></p>
+        <%= form.radio_button :flight_id, flight.id %>
+        <%= form.label "flight_id_#{flight.id}", "Select this flight" %>
+      </div>
+    <% end %>
+    <%= form.submit "Book Selected Flight" %>
+  <% else %>
+    <p>No flights found!</p>
   <% end %>
-<% else %>
-  <p>No flight found!</p>
 <% end %>

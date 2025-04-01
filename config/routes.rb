@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "homepages/index"
+  resources :bookings, only: [ :new, :create ]
   resources :flights, only: [ :index, :new, :create ]
   resource :session
   resources :passwords, param: :token

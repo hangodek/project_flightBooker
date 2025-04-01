@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-  allow_unauthenticated_access only: %i[index new create]
+  # allow_unauthenticated_access only: %i[index new create]
 
   def index
     departure_airport_params = Airport.find_by(code: params[:departure_airport])
@@ -29,6 +29,12 @@ class FlightsController < ApplicationController
       redirect_to flights_path
     else
       render :new, status: :unprocessable_identity
+    end
+  end
+
+  def book_flight
+    if authenticated?
+      user = Current.user
     end
   end
 
