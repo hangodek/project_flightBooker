@@ -1,0 +1,30 @@
+<h1>New Flight</h1>
+
+<%= form_with model: @flight do |form| %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :departure_airport %>
+  <%= form.select :departure_airport,
+              [
+                ["New York City", "NYC"],
+                ["San Fransisco", "SFC"],
+                %w[Indonesia IDN],
+                %w[Singapore SPR],
+              ] %>
+
+  <%= form.label :arrival_airport %>
+  <%= form.select :arrival_airport,
+              [
+                ["New York City", "NYC"],
+                ["San Fransisco", "SFR"],
+                %w[Indonesia IDN],
+                %w[Singapore SPR],
+              ] %>
+
+  <%= form.label :date %>
+  <%= form.date_field :date %>
+
+  <%= form.submit :Submit %>
+<% end %>

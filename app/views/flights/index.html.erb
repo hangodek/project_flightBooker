@@ -1,8 +1,12 @@
 <h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+
+<%= link_to "New flight", new_flight_path %>
+
+<hr>
 
 <%= render partial: "flights/partials/searchform" %>
 
+<h1>Flights list</h1>
 <% if @flights_filtered %>
   <% @flights_filtered.each do |flight| %>
     <p><%= flight.name %></p>

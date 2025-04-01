@@ -1,4 +1,4 @@
-<%= form_with url: "/flights/index", method: :get, html: {id: "flight_form"} do |form| %>
+<%= form_with url: "/flights", method: :get, html: {id: "flight_form"} do |form| %>
 
   <div>
     <%= form.label :departure_airport, "Departure Airport" %>
@@ -16,7 +16,7 @@
     <%= form.select :arrival_airport,
                 [
                   ["New York City", "NYC"],
-                  ["San Fransisco", "SFC"],
+                  ["San Fransisco", "SFR"],
                   %w[Indonesia IDN],
                   %w[Singapore SPR],
                 ] %>
@@ -25,6 +25,11 @@
   <div>
     <%= form.label :number_of_passengers, "Number of Passengers" %>
     <%= form.select :number_of_passengers, [1, 2, 3, 4] %>
+  </div>
+
+  <div>
+    <%= form.label :date, "Date" %>
+    <%= form.date_field :date %>
   </div>
 
   <%= form.submit "Search Flight" %>
